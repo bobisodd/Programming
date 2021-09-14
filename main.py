@@ -17,3 +17,4 @@ elif(bmi < 40):
 else:
     print("Seriously comma need some help. You, might, be, in, a , commmmmmmmma, soon.")
     
+print('i died')
