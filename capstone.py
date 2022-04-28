@@ -1,24 +1,43 @@
-from tkinter import *
-from pytube import YouTube
+def add(x, y):
+    return x + y
 
-root = Tk()
-root.geometry('500x300')
-root.resizable(0,0)
-root.title("DataFlair-youtube video downloader")
+def subtract(x, y):
+    return x - y
 
-Label(root,text = 'Youtube Video Downloader', font ='arial 20 bold').pack()
+def multiply(x, y):
+    return x * y
 
-link = StringVar()
+def divide(x, y):
+    return x / y
 
-Label(root, text = 'Paste Link Here:', font = 'arial 15 bold').place(x= 160 , y = 60)
-link_enter = Entry(root, width = 70,textvariable = link).place(x = 32, y = 90)
+print("Select operation.")
+print("1.Add")
+print("2.Subtract")
+print("3.Multiply")
+print("4.Divide")
 
-def Downloader():     
-    url =YouTube(str(link.get()))
-    video = url.streams.first()
-    video.download()
-    Label(root, text = 'DOWNLOADED', font = 'arial 15').place(x= 180 , y = 210) 
+while True:
+    choice = input("Enter choice(1/2/3/4): ")
 
-Button(root,text = 'DOWNLOAD', font = 'arial 15 bold' ,bg = 'pale violet red', padx = 2, command = Downloader).place(x=180 ,y = 150)
+    if choice in ('1', '2', '3', '4'):
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
 
-root.mainloop()
+        if choice == '1':
+            print(num1, "+", num2, "=", add(num1, num2))
+
+        elif choice == '2':
+            print(num1, "-", num2, "=", subtract(num1, num2))
+
+        elif choice == '3':
+            print(num1, "*", num2, "=", multiply(num1, num2))
+
+        elif choice == '4':
+            print(num1, "/", num2, "=", divide(num1, num2))
+        
+        next_calculation = input("Let's do next calculation? (yes/no): ")
+        if next_calculation == "no":
+          break
+    
+    else:
+        print("Invalid Input")
